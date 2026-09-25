@@ -35,7 +35,14 @@ def embed_texts(texts: list[str]) -> list[list[float]]:
     # from sentence_transformers import SentenceTransformer
     # model = SentenceTransformer(EMBEDDING_MODEL)
     # return model.encode(texts).tolist()
-    raise NotImplementedError("Implement embed_texts")
+    from openai import OpenAI
+    client = OpenAI()
+
+    response = client.embeddings.create(
+        input=texts, model="text-embedding-3-small"
+    )
+    embeddings = [data.embedding for data in response.data]
+    return embeddings
 
 
 def get_collection():
@@ -49,7 +56,6 @@ def get_collection():
     #     name=COLLECTION_NAME,
     #     metadata={"hnsw:space": "cosine"},
     # )
-    raise NotImplementedError("Implement get_collection")
 
 
 def load_documents() -> list[dict]:
