@@ -1,0 +1,77 @@
+[
+  {
+    "question": "Địa chỉ Student Portal để thực hiện đăng ký tín chỉ tại VinUniversity là gì?",
+    "expected_answer": "Địa chỉ Student Portal để sinh viên VinUniversity đăng ký tín chỉ là one.vinuni.edu.vn/student.",
+    "expected_context": "Student Portal: https://one.vinuni.edu.vn/student. Đăng ký tín chỉ Course Registration."
+  },
+  {
+    "question": "Chương trình Cử nhân Khoa học Dữ liệu (BSDS) tại VinUni yêu cầu tổng cộng bao nhiêu tín chỉ?",
+    "expected_answer": "Chương trình Cử nhân Khoa học Dữ liệu (BSDS) tại VinUni yêu cầu tổng cộng 120 tín chỉ cho chương trình đơn ngành (Single major).",
+    "expected_context": "Total credits Single major: 120 credits. BACHELOR OF SCIENCE IN DATA SCIENCE PROGRAM CODE: 7460108."
+  },
+  {
+    "question": "Chương trình Cử nhân Quản trị Kinh doanh (BAE) tại VinUni yêu cầu hoàn thành bao nhiêu tín chỉ?",
+    "expected_answer": "Chương trình Cử nhân Quản trị Kinh doanh (BAE) yêu cầu 120 tín chỉ (không tính chuyên ngành phụ - Minor).",
+    "expected_context": "Total credits 120 credits (without Minor). BACHELOR OF BUSINESS ADMINISTRATION."
+  },
+  {
+    "question": "Khung chương trình Cử nhân Khoa học Dữ liệu (BSDS) được thẩm định và xác thực bởi trường đại học quốc tế nào?",
+    "expected_answer": "Khung chương trình Cử nhân Khoa học Dữ liệu của VinUni đã được thẩm định và xác thực bởi Đại học Cornell (Cornell University).",
+    "expected_context": "This curriculum framework has been reviewed and validated by Cornell University. Applicable from Cohort 2025-2029."
+  },
+  {
+    "question": "Khung chương trình BSDS 2025-2029 được ban hành kèm theo quyết định nào và ký vào ngày nào?",
+    "expected_answer": "Khung chương trình BSDS 2025-2029 được ban hành theo Quyết định số 474/2025/QĐ-VUNI ngày 15/08/2025 bởi Hiệu trưởng/Viện trưởng (Provost) của VinUniversity.",
+    "expected_context": "Decision No. 474/2025/QĐ-VUNI dated August 15, 2025 by Provost of VinUniversity."
+  },
+  {
+    "question": "Mã ngành đào tạo (Program Code) của chương trình Cử nhân Khoa học Dữ liệu tại VinUni là gì?",
+    "expected_answer": "Mã chương trình đào tạo của ngành Cử nhân Khoa học Dữ liệu tại VinUni là 7460108.",
+    "expected_context": "BACHELOR OF SCIENCE IN DATA SCIENCE PROGRAM CODE: 7460108."
+  },
+  {
+    "question": "Sinh viên VinUni sử dụng tài khoản nào để đăng nhập vào hệ thống đăng ký tín chỉ?",
+    "expected_answer": "Sinh viên sử dụng tài khoản email VinUni chính thức để đăng nhập vào hệ thống đăng ký tín chỉ.",
+    "expected_context": "Điền tài khoản email VinUni và bấm Next. Enter your VinUni email account and click Next."
+  },
+  {
+    "question": "Để vào chức năng Đăng ký tín chỉ trên Cổng thông tin sinh viên, sinh viên thực hiện thao tác chọn menu nào?",
+    "expected_answer": "Sinh viên chọn menu Học tập, sau đó chọn submenu Đăng ký tín chỉ.",
+    "expected_context": "1. Chọn menu Học tập, chọn submenu Đăng ký tín chỉ. Bước 1. Menu Đăng ký tín chỉ."
+  },
+  {
+    "question": "Yêu cầu trình độ tiếng Anh bắt buộc đối với sinh viên khi nhập học vào VinUni từ năm 2026 là gì?",
+    "expected_answer": "Từ năm 2026, VinUni yêu cầu toàn bộ sinh viên khi nhập học bắt buộc phải có chứng chỉ IELTS 6.5 Overall (không kỹ năng nào dưới 6.0) hoặc tương đương.",
+    "expected_context": "Kể từ năm 2026, Trường Đại học VinUni yêu cầu toàn bộ Sinh Viên khi nhập học bắt buộc có IELTS 6.5 Overall (không kỹ năng nào dưới 6.0) hoặc tương đương."
+  },
+  {
+    "question": "Sinh viên năm nhất tại VinUni có bắt buộc phải ở ký túc xá không?",
+    "expected_answer": "Có, đối với sinh viên năm nhất, việc ở ký túc xá là bắt buộc để làm quen với cuộc sống đại học, kết nối bạn bè và học cách sống tập thể (ngoại trừ trường hợp có lý do bất khả kháng được đặc cách).",
+    "expected_context": "Đối với sinh viên năm nhất, việc ở ký túc xá sẽ là bắt buộc để tạo cơ hội cho các bạn làm quen với cuộc sống đại học, kết nối bạn bè và học cách sống tập thể."
+  },
+  {
+    "question": "Học phí niêm yết hàng năm tại VinUni cho các ngành học (ngoại trừ Điều dưỡng) là bao nhiêu?",
+    "expected_answer": "Học phí niêm yết cho tất cả các ngành (ngoại trừ Điều dưỡng) là khoảng 815.850.000 VND (tương đương khoảng 35.000 USD) mỗi năm.",
+    "expected_context": "Học phí niêm yết: Tất cả các ngành: ~ 815.850.000 VND (~ 35.000 USD) mỗi năm. Điều dưỡng: 349.650.000 VND (~ 15.000 USD) mỗi năm."
+  },
+  {
+    "question": "Sinh viên tại VinUni có cơ hội thực tập như thế nào trong chương trình đào tạo?",
+    "expected_answer": "100% sinh viên được thực tập vào năm thứ 4 tại các công ty thuộc Tập đoàn Vingroup hoặc các đối tác lớn; sinh viên Viện Kinh doanh Quản trị được thực tập từ năm 1, Viện CECS từ năm 3, và Viện Khoa học Sức khỏe thực tập tại các bệnh viện lớn.",
+    "expected_context": "100% sinh viên được thực tập ở năm thứ 4 tại các công ty thuộc hệ sinh thái Tập đoàn Vingroup hoặc các đối tác lớn. Sinh viên Viện Kỹ thuật và Khoa học Máy tính được thực tập từ năm 3; Sinh viên Viện Kinh doanh Quản trị được thực tập từ năm 1."
+  },
+  {
+    "question": "Chương trình hỗ trợ khởi nghiệp của Trung tâm Khởi nghiệp E-Lab tại VinUni tài trợ cho các dự án như thế nào?",
+    "expected_answer": "Sinh viên được tài trợ 2.000 USD/dự án trong giai đoạn Vườn ươm, và những dự án xuất sắc nhất vào vòng Tăng tốc sẽ nhận hỗ trợ tài trợ lên đến 10.000 USD/đội.",
+    "expected_context": "Khi ý tưởng hoàn thiện, sinh viên sẽ được tài trợ 2.000 USD/dự án để thử nghiệm giai đoạn ươm tạo trong Chương trình Vườn ươm. Những dự án xuất sắc nhất sẽ được chọn vào vòng Tăng tốc với nhiều hỗ trợ và tài trợ lên đến 10.000 USD/đội."
+  },
+  {
+    "question": "Sinh viên có thể nộp học phí tại VinUni qua những hình thức nào?",
+    "expected_answer": "Sinh viên có 2 hình thức nộp học phí: quẹt thẻ Visa trực tiếp tại phòng Kế toán – Tài chính VinUni hoặc chuyển tiền online qua cổng Salesforce.",
+    "expected_context": "Bạn có 02 hình thức đóng tiền: Quẹt thẻ Visa trực tiếp tại phòng Kế toán – Tài chính VinUni hoặc chuyển tiền online qua cổng Salesforce."
+  },
+  {
+    "question": "Trong màn hình Đăng ký tín chỉ, sinh viên xem danh sách các lớp học phần đã đăng ký thành công ở vị trí nào?",
+    "expected_answer": "Sinh viên kéo xuống cuối màn hình đăng ký tín chỉ để xem danh sách các lớp học phần đã đăng ký thành công.",
+    "expected_context": "Kéo xuống cuối màn hình đăng ký tín chỉ để xem danh sách lớp học phần đã đăng ký thành công."
+  }
+]
