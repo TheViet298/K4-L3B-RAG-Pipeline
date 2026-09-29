@@ -1,0 +1,47 @@
+# Individual contribution report
+
+## Thông tin
+
+- Họ và tên: Nguyễn Văn Giáp (2A202602903)
+- Mã học viên: 2A202602903
+- Nhóm: K4-L3B Group
+- Repository/branch: branch/giap
+
+## Phần việc đã thực hiện
+
+| Module/deliverable | Việc tôi trực tiếp làm | File/commit/PR | Trạng thái |
+|---|---|---|---|
+| Chuẩn hoá dữ liệu (Task 3) | Viết pipeline chuyển đổi PDF cẩm nang đào tạo và JSON tin tức tuyển sinh sang Markdown | `src/task3_convert_markdown.py` | Done |
+| Chunking & Indexing (Task 4) | Xây dựng bộ chia văn bản đệ quy, hàm embedding đa provider và upsert vector vào ChromaDB | `src/task4_chunking_indexing.py` | Done |
+| Hybrid Retrieval & RRF (Task 5-7) | Triển khai Semantic Search, BM25 Okapi lexical search và thuật toán hợp nhất thứ hạng RRF | `src/task5_semantic_search.py`, `src/task6_lexical_search.py`, `src/task7_reranking.py` | Done |
+| Fallback & Pipeline (Task 8-9) | Xây dựng pipeline kiểm tra cosine threshold và kích hoạt fallback PageIndex | `src/task8_pageindex_vectorless.py`, `src/task9_retrieval_pipeline.py` | Done |
+| Generation & Citation (Task 10, UI) | Triển khai prompt lost-in-the-middle, trích xuất citation nguồn và giao diện Streamlit Chatbot | `src/task10_generation.py`, `app.py` | Done |
+| Evaluation Dataset & Tests | Thiết kế bộ 15 Golden Q&A có căn cứ ngữ cảnh, hoàn thiện toàn bộ unit test & acceptance test | `group_project/evaluation/`, `tests/` | Done |
+
+## Quyết định kỹ thuật quan trọng
+
+1. **Quyết định:** Sử dụng Reciprocal Rank Fusion (RRF với $k=60$) thay vì cộng trực tiếp điểm Cosine và BM25.  
+   - **Lý do/evidence:** Thang điểm của Cosine Similarity (0 đến 1) và BM25 (từ 0 đến $+\infty$) hoàn toàn khác nhau về phân phối; cộng điểm trực tiếp sẽ làm mất cân bằng hoặc bị chi phối bởi BM25. RRF chỉ dựa trên thứ hạng (Rank) nên ổn định và độc lập với phân phối điểm.  
+   - **Trade-off:** Mất thông tin về độ lớn khoảng cách tuyệt đối giữa các văn bản, do đó RRF score không thể dùng làm ngưỡng fallback mà phải giữ lại Cosine score gốc của dense model.
+
+2. **Quyết định:** Đảo vị trí chunks (Document Reordering) trước khi đưa vào LLM Context.  
+   - **Lý do/evidence:** Theo hiện tượng "Lost-in-the-middle", các mô hình ngôn ngữ lớn chú ý tốt nhất ở phần đầu và phần cuối của prompt context, dễ bỏ qua thông tin nằm ở đoạn giữa.  
+   - **Trade-off:** Cần thêm bước reorder nhưng giữ nguyên ID và trích dẫn để không làm sai lệch số thứ tự citation khi hiển thị cho người dùng.
+
+## Kiểm thử và kết quả
+
+- **Test hoặc query đã dùng:** Bộ kiểm thử tự động `pytest tests/test_contracts.py` (15 test) và `pytest tests/test_acceptance.py` (5 test). Toàn bộ 20/20 test pass.
+- **Kết quả trước/sau:** Ban đầu hệ thống còn thiếu hàm contract và golden dataset (11 failed); sau khi hoàn thiện toàn bộ pipeline đạt 20/20 passed.
+- **Lỗi đã phát hiện và cách xử lý:** ChromaDB Rust binding không nhận giá trị `None` trong metadata (`TypeError: Cannot convert Python object to MetadataValue`). Đã xử lý bằng cách chuẩn hóa `url: ""` trong vectorstore và khôi phục `url: None` khi retrieve để tuân thủ contract.
+
+## Điều còn hạn chế
+
+- **Một hạn chế cụ thể:** Ngưỡng `SCORE_THRESHOLD = 0.3` hiện tại cố định cho toàn bộ truy vấn, chưa tự động co giãn theo độ dài câu hỏi.
+- **Nếu có thêm thời gian:** Tích hợp Cross-Encoder Reranker (như BGE-Reranker-Large) sau bước RRF để tăng thêm Context Precision cho các câu hỏi phức tạp.
+
+## Xác nhận đóng góp
+
+Tôi xác nhận nội dung trên phản ánh đúng phần việc của mình và có thể giải thích hoặc chạy lại trong buổi demo.
+
+- Ngày: 25/09/2026
+- Tên thành viên: Giáp
