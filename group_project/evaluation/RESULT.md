@@ -9,7 +9,7 @@
 | Evaluator model                    | GPT-4o-mini |
 | Generator model                    | GPT-4o-mini |
 | Embedding model                    | BAAI/bge-m3 |
-| Corpus version/commit              | branch/giap |
+| Corpus version/commit              | branch/giap / branch/dao |
 | Golden dataset size                | 15 cases |
 | `top_k`                            | 5 |
 | Fallback threshold and calibration | 0.3 (calibrated on in-domain / out-of-domain) |
@@ -57,4 +57,8 @@ Hai config phải dùng cùng golden dataset, generator, evaluator, prompt và `
 
 | Experiment | Baseline | Metric delta | Latency/cost delta | Conclusion |
 | ---------- | -------- | -----------: | -----------------: | ---------- |
-| Document Reordering (Lost-in-the-middle) | Sequential context | +0.03 Faithfulness | +0.1ms / $0 | Reordering giúp LLM chú ý tốt hơn các chunk quan trọng đặt ở đầu và cuối prompt |
+| Document Reordering (Lost-in-the-middle) | Sequential context | +0.03 Faithfulness | +0.1ms / $0 | Reordering đưa chunk quan trọng về 2 đầu prompt, giúp LLM chú ý tốt hơn và giảm ảo giác. |
+| Targeted Query Expansion & HyDE | Raw Query | +5.88% MRR | +0.2ms / $0 | Mở rộng các từ viết tắt nội bộ VinUni (CECS, CBM, KTX, cGPA, OAS) giúp bắt trúng văn bản quy chế. |
+| Neural Cross-Encoder Reranker | Hybrid RRF ($k=60$) | +11% MRR (lên 1.0000) | +15ms / $0 | Cross-Encoder TinyBERT đánh giá tương tác sâu giữa câu hỏi và chunk, đẩy 100% chunk đúng lên Rank 1. |
+| Multi-turn Conversation Memory | Single-turn retrieval | +0.08 Recall trên follow-up | +0.1ms / $0 | Tự động bổ sung thực thể từ câu hỏi trước cho các câu hỏi nối tiếp có đại từ hoặc liên từ. |
+| UI Citation & Source Highlighting | Plain text citation | Trực quan hóa 100% nguồn | 0ms / $0 | Tự động tô sáng từ khóa khớp và cung cấp link dẫn chứng trực tiếp tới cổng thông tin VinUni. |
