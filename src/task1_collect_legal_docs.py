@@ -24,20 +24,20 @@ def setup_directory() -> None:
 
 
 def download_documents() -> None:
-    """Tải ít nhất 3 PDF/DOCX từ nguồn công khai."""
-    # TODO: Có thể tải thủ công hoặc dùng requests.
-    #
-    # Ví dụ:
-    # import requests
-    #
-    # sources = {
-    #     "policy-a.pdf": "https://example.edu/policy-a.pdf",
-    # }
-    # for filename, url in sources.items():
-    #     response = requests.get(url, timeout=30)
-    #     response.raise_for_status()
-    #     (DATA_DIR / filename).write_bytes(response.content)
-    raise NotImplementedError("Implement download_documents")
+    """Tải ít nhất 3 PDF/DOCX từ nguồn công khai hoặc kiểm tra các file đã thu thập."""
+    existing = [
+        path for path in DATA_DIR.iterdir()
+        if path.is_file() and path.suffix.lower() in {".pdf", ".doc", ".docx"}
+    ]
+    if len(existing) >= 3:
+        print(f"Found {len(existing)} legal documents in {DATA_DIR}:")
+        for path in existing:
+            print(f"  - {path.name} ({path.stat().st_size // 1024} KB)")
+        return
+
+    raise RuntimeError(
+        f"Need at least 3 documents in {DATA_DIR}. Found only {len(existing)}."
+    )
 
 
 if __name__ == "__main__":
